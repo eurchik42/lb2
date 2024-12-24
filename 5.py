@@ -4,9 +4,7 @@ app = Flask(__name__)
 def init_db():
     conn = sqlite3.connect('messages.db')
     c = conn.cursor()
-    c.execute('''CREATE TABLE IF NOT EXISTS messages (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    content TEXT)''')
+    c.execute('''CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY AUTOINCREMENT,content TEXT)''')
     conn.commit()
     conn.close()
 def add_message_to_db(content):
